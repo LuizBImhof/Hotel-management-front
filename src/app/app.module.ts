@@ -9,6 +9,12 @@ import { GuestsListComponent } from './components/guests-list/guests-list.compon
 import { ReservationsListComponent } from './components/reservations-list/reservations-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatDivider } from '@angular/material/divider';
+import { SearchGuestsComponent } from './components/search-guests/search-guests.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,18 @@ import { MatDivider } from '@angular/material/divider';
     GuestsListComponent,
     ReservationsListComponent,
     HeaderComponent,
+    SearchGuestsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatDivider
+    MatDivider,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButton,
+    MatIconModule,
   ],
   providers: [
     provideAnimationsAsync()

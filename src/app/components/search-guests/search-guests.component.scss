@@ -1,0 +1,30 @@
+
+
+form {
+    display: flex;
+    padding: 24px 200px 24px 200px;
+    mat-form-field.search {
+        width: 30%;
+        padding: 2px;
+
+       }
+
+    mat-form-field.input {
+        padding: 2px;
+        width: 70%;
+
+    }
+      
+    button.primary {
+        width: 25px;
+        margin: auto;
+        color: var(--primary);
+        background-color: var(--background);
+        
+       }
+
+    background-color: var(--background);
+       
+   }
+
+   
