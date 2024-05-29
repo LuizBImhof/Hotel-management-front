@@ -1,18 +1,18 @@
-<form >
+<form class="form-group" [formGroup]="formGroup">
     <mat-form-field class = "search">
         <mat-label>Buscar por</mat-label>
-        <mat-select class="select">
+        <mat-select class="select" name="searchBy" formControlName="searchBy" >
             <mat-option value="name">Nome</mat-option>
-            <mat-option value="documento">Documento</mat-option>
-            <mat-option value="phone">Telefone</mat-option>
+            <mat-option value="document" >Documento</mat-option>
+            <mat-option value="phone" >Telefone</mat-option>
         </mat-select> 
     </mat-form-field>
-    <mat-form-field class = "input">
-        <input matInput placeholder="Digite aqui" />
+    <mat-form-field class = "input" >
+        <input name ="value" matInput placeholder="Digite aqui" formControlName="value">
     </mat-form-field>
-    <button mat-flat-button type = "submit" class = "primary" color="accent">
+    <button mat-flat-button (click)="onSubmit()" class = "primary">
         <mat-icon >search</mat-icon>
         Buscar</button>
     
-  </form>
+    </form>
 

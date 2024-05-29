@@ -15,6 +15,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { GuestComponent } from './components/guest/guest.component';
+import { MatTableModule } from '@angular/material/table';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReservationsListComponent,
     HeaderComponent,
     SearchGuestsComponent,
+    GuestComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatButton,
     MatIconModule,
+    MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()
