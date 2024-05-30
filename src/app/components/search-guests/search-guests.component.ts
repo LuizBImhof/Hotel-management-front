@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GetGuestsService } from '../../services/get-guests.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Guest } from '../../types/guest-response.interface';
@@ -9,9 +9,10 @@ import { Guest } from '../../types/guest-response.interface';
   styleUrl: './search-guests.component.scss'
 })
 export class SearchGuestsComponent implements OnInit{
+  @Output() submitEvent = new EventEmitter();
   displayText = '';
   formGroup!: FormGroup;
-  guest: Guest[] = [];
+  guest!: Guest;
 
   constructor(
     private getGuestsService: GetGuestsService,
@@ -22,42 +23,24 @@ export class SearchGuestsComponent implements OnInit{
       searchBy: '',
       value: ''
     })
-  
+    this.getGuestsService.guest$.subscribe((guest) => {
+      this.guest = guest;
+    });  
   }
   onSubmit():void {
     let { searchBy, value } = this.formGroup.value;
     console.log(this.formGroup.value);
     if (searchBy === 'name') {
-      this.getGuestsService.getGuestByName(value).subscribe((response) => {
-        if ( response === null ) {
-          console.log("no guest found");
-        } else {
-          this.guest = [];
-          this.guest.push(response);
-        }
-      });
+      this.getGuestsService.getGuestByName(value);
     }
-    if (searchBy === 'document'){
-      this.getGuestsService.getGuestByDocument(value).subscribe((response) => {
-        if ( response === null ) {
-          console.log("no guest found");
-        } else {
-          this.guest = [];
-          this.guest.push(response);
-        }
-      });
+    if (searchBy === 'document' || searchBy === '') {
+      this.getGuestsService.getGuestByDocument(value);
     }
-    if (searchBy === 'phone'){
-      this.getGuestsService.getGuestByPhone(value).subscribe((response) => {
-        if ( response === null ) {
-          console.log("no guest found");
-        } else {
-          this.guest = [];
-          this.guest.push(response);
-        }
-      });
+    if (searchBy === 'phone') {
+      this.getGuestsService.getGuestByPhone(value);
     }
-    console.log(this.guest);
+      this.submitEvent.emit();
+    
   } 
 
 }

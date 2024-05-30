@@ -1,6 +1,6 @@
 <div class="app-container">
-<app-header></app-header>
-<app-search-guests></app-search-guests>
-<app-guest></app-guest>
-<mat-divider></mat-divider>
+    <app-header></app-header>
+    <app-search-guests (submitEvent) = "onSubmit()"></app-search-guests> 
+    <app-guest *ngIf="(showGuest|async)">  </app-guest>
+    <mat-divider></mat-divider>
 </div>

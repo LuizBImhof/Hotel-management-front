@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { GuestComponent } from './components/guest/guest.component';
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButton,
     MatIconModule,
     MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [
     provideAnimationsAsync()
